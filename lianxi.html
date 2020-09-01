@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>铂蓝</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/global.css" />
+<link type="text/css" rel="stylesheet" href="css/common.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.event.drag.banner-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSlider.banner.js"></script>
+
+
+<script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".main_visual").hover(function(){
+                $("#btn_prev,#btn_next").fadeIn()
+            },function(){
+                $("#btn_prev,#btn_next").fadeOut()
+            });
+
+            $dragBln = false;
+
+            $(".main_image").touchSlider({
+                flexible : true,
+                speed : 200,
+                btn_prev : $("#btn_prev"),
+                btn_next : $("#btn_next"),
+                paging : $(".flicking_con a"),
+                counter : function (e){
+                    $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+                }
+            });
+
+            $(".main_image").bind("mousedown", function() {
+                $dragBln = false;
+            });
+
+            $(".main_image").bind("dragstart", function() {
+                $dragBln = true;
+            });
+
+            $(".main_image a").click(function(){
+                if($dragBln) {
+                    return false;
+                }
+            });
+
+            timer = setInterval(function(){
+                $("#btn_next").click();
+            }, 5000);
+
+            $(".main_visual").hover(function(){
+                clearInterval(timer);
+            },function(){
+                timer = setInterval(function(){
+                    $("#btn_next").click();
+                },5000);
+            });
+
+            $(".main_image").bind("touchstart",function(){
+                clearInterval(timer);
+            }).bind("touchend", function(){
+                        timer = setInterval(function(){
+                            $("#btn_next").click();
+                        }, 5000);
+                    });
+
+        });
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".def-nav").hover(function(){
+                $(this).find(".pulldown-nav").addClass("hover");
+                $(this).find(".pulldown").show();
+            },function(){
+                $(this).find(".pulldown").hide();
+                $(this).find(".pulldown-nav").removeClass("hover");
+            });
+
+        });
+    </script>
+
+
+<script type="text/javascript" src="js/picgundong.js"></script>
+
+    <style type="text/css">
+        #allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+        #result {width:100%;font-size:12px;}
+        dl,dt,dd,ul,li{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        dt{
+            font-size:14px;
+            font-family:"微软雅黑";
+            font-weight:bold;
+            border-bottom:1px dotted #000;
+            padding:5px 0 5px 5px;
+            margin:5px 0;
+        }
+        dd{
+            padding:5px 0 0 5px;
+        }
+        li{
+            line-height:28px;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+
+
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ckuvSDuX2904d0goR8rzij0c"></script>
+
+
+</head>
+
+<body>
+<!--头部开始-->
+<div class="ind_top">
+     <div class="ind_one">
+         <div class="ind_logo"><a href="index.html"><img src="images/logo.jpg" alt="logo" /></a></div>
+         <div class="ind_phone">
+             <p class="ind_phoneText"><img src="images/phone.jpg" alt="phone" />021-88889999</p>
+             <p>客服时间：9:00-18:00（节假日除外）</p>
+         </div>
+     </div>
+</div>
+<!--nav-->
+<div class="hd-main clearfix" id="header">
+
+    <div class="navs">
+        <a class="def-nav" href="index.html">首页</a>
+        <div class="def-nav current has-pulldown-special">
+            <a class="pulldown-nav" href=""><em class="f-icon"></em>产品服务</a>
+            <div class="pulldown app-url">
+                <div class="content">
+                    <a class="li disk" href="zhanshi.html">
+                        <span class="text">产品介绍</span>
+                    </a>
+                    <a class="li tongxunlu" href="zhichi.html">
+                        <span class="text">服务支持</span>
+                    </a>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="def-nav current has-pulldown-special">
+            <a class="pulldown-nav" href=""><em class="f-icon"></em>行业动态</a>
+            <div class="pulldown app-url app-url2">
+                <div class="content">
+                    <a class="li disk" href="zixun.html">
+                        <span class="text">最新资讯</span>
+                    </a>
+                    <a class="li tongxunlu" href="zhengce.html">
+                        <span class="text">方案政策</span>
+                    </a>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+
+        <a class="def-nav" href="anli.html">客户案例</a>
+        <a class="def-nav" href="fuwu.html">客户服务</a>
+
+        <div class="def-nav current has-pulldown-special">
+            <a class="pulldown-nav" href=""><em class="f-icon"></em>关于我们</a>
+            <div class="pulldown app-url app-url3">
+                <div class="content">
+                    <a class="li disk" href="jianjie.html">
+                        <span class="text">公司简介</span>
+                    </a>
+                    <a class="li tongxunlu" href="licheng.html">
+                        <span class="text">发展历程</span>
+                    </a>
+                    <a class="li tongxunlu" href="lianxi.html">
+                        <span class="text">联系我们</span>
+                    </a>
+                    <a class="li tongxunlu" href="nashi.html">
+                        <span class="text">招贤呐士</span>
+                    </a>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--效果开始banner-->
+<div class="main_visual">
+    <div class="flicking_con">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+    </div>
+    <div class="main_image">
+        <ul>
+            <li><span class="img_3"></span></li>
+            <li><span class="img_4"></span></li>
+            <li><span class="img_1"></span></li>
+            <li><span class="img_2"></span></li>
+            <li><span class="img_5"></span></li>
+        </ul>
+        <a href="javascript:;" id="btn_prev"></a>
+        <a href="javascript:;" id="btn_next"></a>
+    </div>
+</div>
+<!--效果html结束-->
+<div class="jj_conTop">
+     <h2 class="in_titles">联系我们<span>/</span><i>Company Profile</i></h2>
+     <p>关于我们<a href="jianjie.html">公司简介</a><a href="licheng.html">发展历程</a><a href="lianxi.html">联系方式</a><a href="nashi.html">招贤呐士</a></p>
+</div>
+<div class="jj_content">
+    <div class="jj_con">
+        <div class="ll_left">
+            <div id="allmap"></div>
+
+
+        </div>
+        <div class="ll_right">
+             <p><strong>我们的信息</strong><br />
+                 服务热线：021-x8899988<br />
+                 联系人：某先生<br />
+                 公司邮箱：moumou@jinrong.com<br />
+                 公司传真：021-xxx21556<br />
+                 邮政编码：200600<br />
+                 公司地址：上海市xx区x号x街道xx街道xxx街道</p>
+            <img src="images/ll_us.jpg" alt="联系我们" />
+        </div>
+
+    <div style="clear:both;"></div>
+    </div>
+</div>
+
+<div class="in_content5">
+    <h2 class="in_titles in_titles2">友情链接<span>/</span><i>Links</i></h2>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.marquee').kxbdMarquee({
+                direction:'left',
+                eventA:'mouseenter',
+                eventB:'mouseleave'
+            });
+        });
+    </script>
+
+    <div class="marquee">
+        <ul>
+            <li><a href="http://www.fang.con"><img src="images/logo_links1.jpg" alt="搜房"/></a></li>
+            <li><a href="http://www.zhongxin.com"><img src="images/logo_links2.jpg" alt="中信地产"/></a></li>
+            <li><a href="http://www.wanda.com"><img src="images/logo_links3.jpg" alt="万达地产"/></a></li>
+            <li><a href="http://hengda.com/"><img src="images/logo_links4.jpg" alt="恒大地产"/></a></li>
+            <li><a href="http://www.fang.con"><img src="images/logo_links1.jpg" alt="搜房"/></a></li>
+            <li><a href="http://www.zhongxin.com"><img src="images/logo_links2.jpg" alt="中信地产"/></a></li>
+            <li><a href="http://www.wanda.com"><img src="images/logo_links3.jpg" alt="万达地产"/></a></li>
+            <li><a href="http://hengda.com/"><img src="images/logo_links4.jpg" alt="恒大地产"/></a></li>
+            <li><a href="http://www.fang.con"><img src="images/logo_links1.jpg" alt="搜房"/></a></li>
+            <li><a href="http://www.zhongxin.com"><img src="images/logo_links2.jpg" alt="中信地产"/></a></li>
+            <li><a href="http://www.wanda.com"><img src="images/logo_links3.jpg" alt="万达地产"/></a></li>
+            <li><a href="http://hengda.com/"><img src="images/logo_links4.jpg" alt="恒大地产"/></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="in_footer jj_footerTop">
+    <div class="in_content7">
+      <p class="in_footerNAV"><a href="jianjie.html">公司简介</a>　|　<a href="licheng.html">发展历程</a>　|　<a href="lianxi.html">联系方式</a>　|　<a href="nashi.html">招贤纳士</a></p>
+        <p>Copyright（c） 2004-2015 yunmok.com版权所有：上海铂蓝信息技术有限公司  沪ICP备 XXXXXXXX号   All Rights Reserved   </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(121.452203, 31.329523);
+    map.centerAndZoom(point, 15);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+</script>
+
+
+</body>
+</html>
